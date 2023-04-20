@@ -11,25 +11,26 @@ require("rpart")
 
 #parmatros experimento
 PARAM <- list()
-PARAM$experimento  <- 3210
-PARAM$semilla  <- 102191      #Establezco la semilla aleatoria, cambiar por SU primer semilla
+PARAM$experimento  <- 3222
+PARAM$semilla  <- 799999      #Establezco la semilla aleatoria, cambiar por SU primer semilla
 
 #parameetros rpart
 PARAM$rpart_param   <- list( "cp"=          -1,
-                              "minsplit"=  300,
-                              "minbucket"=  20,
+                              "minsplit"=  250,
+                              "minbucket"=  50,
                               "maxdepth"=   10 )
 
 #parametros  arbol
 PARAM$feature_fraction  <- 0.5  #entreno cada arbol con solo 50% de las variables variables
-PARAM$num_trees_max  <- 500 #voy a generar 500 arboles, a mas arboles mas tiempo de proceso y MEJOR MODELO, pero ganancias marginales
+PARAM$num_trees_max  <- 1000 #voy a generar 500 arboles, a mas arboles mas tiempo de proceso y MEJOR MODELO, pero ganancias marginales
+#PARAM$num_trees_max  <- 500 #voy a generar 500 arboles, a mas arboles mas tiempo de proceso y MEJOR MODELO, pero ganancias marginales
 
 
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 #Aqui comienza el programa
 
-setwd("X:\\gdrive\\austral2023v\\")  #Establezco el Working Directory
+setwd("D:\\labo\\")  #Establezco el Working Directory
 
 #cargo los datos
 dataset  <- fread("./datasets/dataset_pequeno.csv")
@@ -45,7 +46,7 @@ setwd( carpeta_experimento )
 
 
 #que tamanos de ensemble grabo a disco, pero siempre debo generar los 500
-grabar  <-  c( 1, 5, 10, 50, 100, 200, 500)
+grabar  <-  c( 1, 5, 10, 50, 100, 200, 500, 750, 1000)
 
 
 #defino los dataset de entrenamiento y aplicacion
